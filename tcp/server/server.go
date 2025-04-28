@@ -33,14 +33,17 @@ func hadleRequest(conn net.Conn) {
 	// Ensures conn is always closed when the function returns or exits
 	defer conn.Close()
 
-	// Read the data from the client
-	buffer := make([]byte, 1024)
 	droppedMessagesFromServer := 0
 
 	for {
 		// Read incoming data into buffer slice
+		buffer := make([]byte, 1024)
 		n, err := conn.Read(buffer)
-		if err != nil && err != io.EOF {
+		if err != nil {
+			if err == io.EOF {
+				fmt.Println("Client closed the connection")
+				break
+			}
 			fmt.Printf("Error reading data from client: %v", err)
 			droppedMessagesFromServer++
 			continue
