@@ -49,10 +49,11 @@ func hadleRequest(conn net.Conn) {
 			continue
 		}
 
-		// Process the message
-		clientMessage := string(buffer[:n])
-
+		// Simulate network by pausing the server for 10 milliseconds after receiving data
 		time.Sleep(time.Millisecond * 10)
+
+		// Process the incoming data
+		clientMessage := string(buffer[:n])
 
 		// Format the message and write back to the connection
 		_, err = conn.Write([]byte(clientMessage))

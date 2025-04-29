@@ -13,12 +13,20 @@ func main() {
 	var totalRoundTripTime time.Duration
 	const totalMessages = 10000
 
-	// Connect to the TCP server running on localhost:8080
-	conn, err := net.Dial("tcp", "localhost:8080")
+	// Resolve the server address
+	serverAddr, err := net.ResolveUDPAddr("udp", "localhost:8081")
 	if err != nil {
-		fmt.Println("Error connecting to server:", err)
+		fmt.Printf("Error resolvingn address: %v\n", err)
 		return
 	}
+
+	// Set up a local UDP connection
+	conn, err := net.DialUDP("udp", nil, serverAddr)
+	if err != nil {
+		fmt.Printf("Error connecting to server: %v\n", err)
+		return
+	}
+
 	defer conn.Close()
 
 	// Send and receive messages
@@ -42,7 +50,7 @@ func main() {
 
 		// Read the server's response
 		buffer := make([]byte, 1024)
-		n, err := conn.Read(buffer)
+		n, _, err := conn.ReadFromUDP(buffer)
 		if err != nil {
 			fmt.Printf("Error reading response: %v", err)
 			errorResponses++
@@ -68,7 +76,6 @@ func main() {
 
 	// After all messages, log the summary
 	averageRoundTripTime := totalRoundTripTime / time.Duration(totalMessages)
-	fmt.Println("--- Summary ---")
 	fmt.Printf("\nTotal messages sent: %d\n", totalMessages)
 	fmt.Printf("Total dropped messages from client: %d\n", droppedMessagesFromClient)
 	fmt.Printf("Total dropped messages from server: %d\n", droppedMessagesFromServer)
