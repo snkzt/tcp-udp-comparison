@@ -2,7 +2,7 @@
 
 # Kill any previous instances running on ports 8080
 fuser -k 8080/tcp 2>/dev/null
-fuser -k 8080/udp 2>/dev/null
+fuser -k 8081/udp 2>/dev/null
 
 # Start TCP and UDP servers in the background
 echo "Starting TCP server..."

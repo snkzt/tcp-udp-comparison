@@ -65,4 +65,4 @@ You will see output like:
 ```
 
 ### Notes
-If you encounter "address already in use" errors, ensure no other processes are using ports 8080.
+If you encounter "address already in use" errors, ensure no other processes are using ports 8080 or 8081.
