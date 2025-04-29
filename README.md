@@ -35,10 +35,10 @@ Make sure Go is installed.
 Then create bin directory run:
 
 ```bash
-go build -o ./bin/tcp_server ./tcp/server.go
-go build -o ./bin/tcp_client ./tcp/client.go
-go build -o ./bin/udp_server ./udp/server.go
-go build -o ./bin/udp_client ./udp/client.go
+go build -o ./bin/tcp_server ./tcp/server/server.go
+go build -o ./bin/tcp_client ./tcp/client/client.go
+go build -o ./bin/udp_server ./udp/server/server.go
+go build -o ./bin/udp_client ./udp/client/client.go
 ```
 
 ### 2. Run Both Projects for Comparison
