@@ -14,7 +14,7 @@ func main() {
 	const totalMessages = 10000
 
 	// Resolve the server address
-	serverAddr, err := net.ResolveUDPAddr("udp", "localhost:8081")
+	serverAddr, err := net.ResolveUDPAddr("udp", "localhost:8080")
 	if err != nil {
 		fmt.Printf("Error resolvingn address: %v\n", err)
 		return

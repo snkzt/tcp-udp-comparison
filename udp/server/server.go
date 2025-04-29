@@ -7,16 +7,16 @@ import (
 )
 
 func main() {
-	// Start a UDP server on port 8081
+	// Start a UDP server on port 8080
 	// ListenPacket doesn't require a connection to be established beforehand
-	ln, err := net.ListenPacket("udp", "localhost:8081")
+	ln, err := net.ListenPacket("udp", "localhost:8080")
 	if err != nil {
 		fmt.Printf("Error starting UDP server: %v", err)
 		return
 	}
 	defer ln.Close()
 
-	fmt.Println("UDP Server is listening on port 8081...")
+	fmt.Println("UDP Server is listening on port 8080...")
 
 	// Handle incoming packets
 	for {

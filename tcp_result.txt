@@ -1,0 +1,17 @@
+Message 0 round-trip time: 11.359416ms
+Message 1 round-trip time: 10.379875ms
+Message 2 round-trip time: 11.235875ms
+Message 3 round-trip time: 11.212166ms
+Message 4 round-trip time: 10.846209ms
+Message 5 round-trip time: 11.203291ms
+Message 6 round-trip time: 11.201041ms
+Message 7 round-trip time: 10.879084ms
+Message 8 round-trip time: 11.21925ms
+Message 9 round-trip time: 10.464333ms
+--- Summary ---
+
+Total messages sent: 10000
+Total dropped messages from client: 0
+Total dropped messages from server: 0
+Total error response from server: 0
+Average round-trip time: 11.275957ms
