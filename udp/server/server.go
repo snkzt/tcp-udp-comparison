@@ -9,7 +9,7 @@ import (
 func main() {
 	// Start a UDP server on port 8081
 	// ListenPacket doesn't require a connection to be established beforehand
-	ln, err := net.ListenPacket("udp", "localhost:8081")
+	ln, err := net.ListenPacket("udp", "127.0.0.1:8081")
 	if err != nil {
 		fmt.Printf("Error starting UDP server: %v", err)
 		return

@@ -14,7 +14,7 @@ func main() {
 	const totalMessages = 10000
 
 	// Connect to the TCP server running on localhost:8080
-	conn, err := net.Dial("tcp", "localhost:8080")
+	conn, err := net.Dial("tcp", "127.0.0.1:8080")
 	if err != nil {
 		fmt.Println("Error connecting to server:", err)
 		return

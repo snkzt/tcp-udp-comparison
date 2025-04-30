@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// Start a TCP server on port 8080
-	ln, err := net.Listen("tcp", "localhost:8080")
+	ln, err := net.Listen("tcp", "127.0.0.1:8080")
 	if err != nil {
 		fmt.Printf("Error starting server: %v", err)
 		return
